@@ -16,18 +16,18 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.mylogin.controller.RegisterController
-import com.example.mylogin.model.RegisterModel
+import com.example.mylogin.controller.AdminLoginController
+import com.example.mylogin.model.AdminLoginModel
 
 @Composable
-fun RegisterScreen(navController: NavController) {
+fun AdminLoginScreen(navController: NavController) {
     val context = LocalContext.current
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
+    var loginFailed by remember { mutableStateOf(false) }
 
-    val model = RegisterModel()
-    val controller = RegisterController(model)
+    val model = AdminLoginModel()
+    val controller = AdminLoginController(model)
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -42,10 +42,19 @@ fun RegisterScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(painter = painterResource(id = R.drawable.c), contentDescription = "Register image", modifier = Modifier.size(200.dp))
-            Text(text = "Create Account", color = Color.Black, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+            Image(
+                painter = painterResource(id = R.drawable.c),
+                contentDescription = "Login image",
+                modifier = Modifier.size(200.dp)
+            )
+            Text(
+                text = "Welcome Back",
+                color = Color.Black,
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "Register a new account", color = Color.Black)
+            Text(text = "Login to your account", color = Color.Black)
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
@@ -60,30 +69,29 @@ fun RegisterScreen(navController: NavController) {
                 label = { Text(text = "Password", color = Color.Black) },
                 visualTransformation = PasswordVisualTransformation()
             )
-            Spacer(modifier = Modifier.height(16.dp))
-            OutlinedTextField(
-                value = confirmPassword,
-                onValueChange = { confirmPassword = it },
-                label = { Text(text = "Confirm Password", color = Color.Black) },
-                visualTransformation = PasswordVisualTransformation()
-            )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+
+            if (loginFailed) {
+                TextButton(onClick = { navController.navigate("forgot") }) {
+                    Text(text = "Forgot Password?", color = Color.Black)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
 
             Button(
                 onClick = {
-                    controller.onRegister(
+                    controller.onLogin(
                         email,
                         password,
-                        confirmPassword,
                         onValidationFailed = { message ->
                             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                         },
-                        onRegistrationSuccess = {
-                            Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT).show()
+                        onLoginSuccess = {
                             navController.navigate("home")
                         },
-                        onRegistrationFailure = { message ->
+                        onLoginFailure = { message ->
+                            loginFailed = true
                             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                         }
                     )
@@ -93,13 +101,13 @@ fun RegisterScreen(navController: NavController) {
                     contentColor = Color.Black
                 )
             ) {
-                Text(text = "Register")
+                Text(text = "Login")
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextButton(onClick = { navController.navigate("login") }) {
-                Text(text = "Already have an account? Login", color = Color.Black)
+            TextButton(onClick = { navController.navigate("register") }) {
+                Text(text = "Don't have an account? Register", color = Color.Black)
             }
         }
     }

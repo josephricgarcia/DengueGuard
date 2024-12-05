@@ -1,8 +1,8 @@
 package com.example.mylogin.controller
 
-import com.example.mylogin.model.RegisterModel
+import com.example.mylogin.model.AdminRegisterModel
 
-class RegisterController(private val model: RegisterModel) {
+class AdminRegisterController(private val model: AdminRegisterModel) {
     fun onRegister(
         email: String,
         password: String,

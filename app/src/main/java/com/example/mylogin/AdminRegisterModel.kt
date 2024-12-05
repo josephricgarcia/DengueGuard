@@ -2,7 +2,7 @@ package com.example.mylogin.model
 
 import com.google.firebase.auth.FirebaseAuth
 
-class RegisterModel(private val auth: FirebaseAuth = FirebaseAuth.getInstance()) {
+class AdminRegisterModel(private val auth: FirebaseAuth = FirebaseAuth.getInstance()) {
     fun registerUser(
         email: String,
         password: String,

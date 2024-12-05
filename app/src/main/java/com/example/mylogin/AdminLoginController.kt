@@ -1,8 +1,8 @@
 package com.example.mylogin.controller
 
-import com.example.mylogin.model.LoginModel
+import com.example.mylogin.model.AdminLoginModel
 
-class LoginController(private val model: LoginModel) {
+class AdminLoginController(private val model: AdminLoginModel) {
 
     fun onLogin(
         email: String,

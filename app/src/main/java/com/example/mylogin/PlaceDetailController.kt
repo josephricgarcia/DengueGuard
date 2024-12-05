@@ -1,7 +1,6 @@
 package com.example.mylogin.controller
 
 import com.example.mylogin.model.PlaceDetailModel
-import com.google.firebase.firestore.FirebaseFirestore
 
 
 class PlaceDetailController(private val placeDetailModel: PlaceDetailModel) {

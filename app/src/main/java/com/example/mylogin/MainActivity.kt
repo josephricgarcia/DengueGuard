@@ -42,9 +42,9 @@ class MainActivity : ComponentActivity() {
                     composable("settings") { SettingScreen(navController = navController) }
                     composable("about") { AboutAppScreen(navController = navController) }
                     composable("term") { TermsPolicyScreen(navController = navController) }
-                    composable("login") { LoginScreen(navController = navController) }
+                    composable("login") { AdminLoginScreen(navController = navController) }
                     composable("forgot") { ForgotPasswordScreen(navController = navController) }
-                    composable("register") { RegisterScreen(navController = navController) }
+                    composable("register") { AdminRegisterScreen(navController = navController) }
 
                     composable("placeDetail/{place}") { backStackEntry ->
                         val place = backStackEntry.arguments?.getString("place") ?: "Unknown Place"
