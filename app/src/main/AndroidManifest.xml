@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mylogin">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/Survillance"
+        android:roundIcon="@drawable/c"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyLogin">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCRT6SZ1uoaqE1YEw0cnx2wFnr8FFvL6rI" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/Survillance"
+            android:theme="@style/Theme.MyLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
