@@ -47,14 +47,14 @@ fun HomePage(navController: NavController) {
                 Image(
                     painter = painterResource(id = R.drawable.c),
                     contentDescription = "Mosquito Image",
-                    modifier = Modifier.size(350.dp)
+                    modifier = Modifier.size(200.dp)
                 )
 
                 // Welcome Text
                 Text(
-                    text = "WELCOME!",
+                    text = "WELCOME TO",
                     fontSize = 50.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
                     color = Color.Black
                 )
@@ -62,9 +62,8 @@ fun HomePage(navController: NavController) {
                 // Title
                 Text(
                     text = "DENGUE GUARD",
-                    fontStyle = Italic,
                     fontSize = 35.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
                     color = Color.Black
                 )

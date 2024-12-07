@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.font.FontWeight.Companion.ExtraBold
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -25,18 +27,6 @@ fun AdminAccount(navController: NavController) {
     val currentUser = auth.currentUser
 
     Scaffold(
-        topBar = {
-            // TopAppBar with back button
-            TopAppBar(
-                title = { Text("Admin Account") },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(painter = painterResource(id = R.drawable.ic_arrow_back), contentDescription = "Back")
-                    }
-                },
-                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color(0xFFFFE0E0)) // Customize color if needed
-            )
-        },
         bottomBar = { AdminBottomNavigationBar(navController = navController) }
     ) { innerPadding ->
         Box(
@@ -63,28 +53,49 @@ fun AdminAccount(navController: NavController) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth(),
-                    horizontalAlignment = Alignment.Start
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(
-                        color = Color.Black,
-                        text = "ADMIN ACCOUNT",
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(bottom = 16.dp)
-                    )
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Start,
+
+                    ){
+
+                        Icon(
+                            painter = painterResource(id = R.drawable.back),
+                            contentDescription = "Back",
+                            modifier = Modifier.clickable { navController.navigate("setting") }
+                        )
+
+
+                        Spacer(modifier = Modifier.width(25.dp))
+
+                        Text(
+                            color = Color.Black,
+                            text = "ADMIN ACCOUNT",
+                            fontSize = 30.sp,
+                            fontWeight = ExtraBold,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                    }
 
                     // Display user email if logged in
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
                             color = Color.Black,
                             text = "Email",
                             fontSize = 18.sp,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = Bold,
                         )
                         Text(
                             color = Color.Black,
@@ -105,7 +116,7 @@ fun AdminAccount(navController: NavController) {
                             color = Color.Black,
                             text = "Password",
                             fontSize = 18.sp,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Bold
                         )
                         Row(
                             verticalAlignment = Alignment.CenterVertically

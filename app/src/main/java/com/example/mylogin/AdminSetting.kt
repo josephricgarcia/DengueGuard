@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextAlign.Companion.Center
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,8 +58,8 @@ fun AdminSetting(navController: NavController) {
                     // Settings Title
                     Text(
                         text = "SETTINGS",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 24.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 30.sp,
                         color = Color.Black,
                     )
                     Spacer(modifier = Modifier.height(10.dp))
@@ -66,7 +67,7 @@ fun AdminSetting(navController: NavController) {
                     Text(
                         text = "INFO",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
+                        fontSize = 20.sp,
                         color = Color.Black,
                         modifier = Modifier
                             .fillMaxWidth()

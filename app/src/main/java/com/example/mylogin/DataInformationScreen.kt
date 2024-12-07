@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-
 @Composable
 fun DataInformationScreen(navController: NavController) {
     Scaffold(
@@ -39,27 +38,30 @@ fun DataInformationScreen(navController: NavController) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
+
                     .padding(16.dp),
+
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+
                 Text(
                     text = "DATA INFORMATION",
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Start),
+                    fontStyle = FontStyle.Normal,
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     color = Color.Black
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+
                 Image(
                     painter = painterResource(id = R.drawable.cases),
                     contentDescription = "Chart Illustration",
                     modifier = Modifier.size(150.dp)
                 )
-                Spacer(modifier = Modifier.height(1.dp))
                 Text(
-                    text = "PLACES",
-                    fontSize = 30.sp,
+                    text = "List Of Barangay",
+                    fontSize = 25.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
                 )

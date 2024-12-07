@@ -23,6 +23,7 @@ fun AwarenessScreen(navController: NavController) {
     var showDengueInfo by remember { mutableStateOf(false) }
     var showSymptoms by remember { mutableStateOf(false) }
     var showPrevention by remember { mutableStateOf(false) }
+
     Scaffold(
         bottomBar = { BottomNavigationBar(navController = navController) }
     ) { innerPadding ->
@@ -46,8 +47,9 @@ fun AwarenessScreen(navController: NavController) {
             ) {
                 Text(
                     text = "DENGUE AWARENESS",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Start),
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(24.dp))
@@ -58,48 +60,92 @@ fun AwarenessScreen(navController: NavController) {
                 )
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Questions
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.Start
+                // Section 1: What is Dengue?
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "WHAT IS DENGUE? ",
+                        text = "What is Dengue?",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black,
-                        modifier = Modifier.clickable { showDengueInfo = !showDengueInfo }
+                        modifier = Modifier.weight(1f) // Text takes available width
                     )
-                    if (showDengueInfo) {
-                        DengueInfo()
-                    }
-                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Icon(
+                        painter = painterResource(id = if (showDengueInfo) R.drawable.up else R.drawable.down),
+                        contentDescription = if (showDengueInfo) "Collapse" else "Expand",
+                        modifier = Modifier
+                            .size(30.dp)
+                            .clickable { showDengueInfo = !showDengueInfo }
+                    )
+                }
+                if (showDengueInfo) {
+                    DengueInfo()
+                }
+
+                // Section 2: Dengue Symptoms
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(
-                        text = "WHAT ARE THE SYMPTOMS OF DENGUE?",
+                        text = "Dengue Symptoms",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black,
-                        modifier = Modifier.clickable { showSymptoms = !showSymptoms }
+                        modifier = Modifier.weight(1f)
                     )
-                    if (showSymptoms) {
-                        DengueSymptoms()
-                    }
-                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Icon(
+                        painter = painterResource(id = if (showSymptoms) R.drawable.up else R.drawable.down),
+                        contentDescription = if (showSymptoms) "Collapse" else "Expand",
+                        modifier = Modifier
+                            .size(30.dp)
+                            .clickable { showSymptoms = !showSymptoms }
+                    )
+                }
+                if (showSymptoms) {
+                    DengueSymptoms()
+                }
+
+                // Section 3: Dengue Prevention
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(
-                        text = "HOW TO PREVENT DENGUE?",
+                        text = "Dengue Prevention",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black,
-                        modifier = Modifier.clickable { showPrevention = !showPrevention }
+                        modifier = Modifier.weight(1f)
                     )
-                    if (showPrevention) {
-                        DenguePrevention()
-                    }
+
+                    Icon(
+                        painter = painterResource(id = if (showPrevention) R.drawable.up else R.drawable.down),
+                        contentDescription = if (showPrevention) "Collapse" else "Expand",
+                        modifier = Modifier
+                            .size(30.dp)
+                            .clickable { showPrevention = !showPrevention }
+                    )
+                }
+                if (showPrevention) {
+                    DenguePrevention()
                 }
             }
         }
     }
 }
+
+
 
 @Composable
 fun DengueInfo() {

@@ -38,15 +38,15 @@ fun DataScreen(navController: NavController) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = "DATA INFORMATION",
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Start),
+                    fontStyle = FontStyle.Normal,
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -55,16 +55,17 @@ fun DataScreen(navController: NavController) {
                     contentDescription = "Chart Illustration",
                     modifier = Modifier.size(150.dp)
                 )
-                Spacer(modifier = Modifier.height(1.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = "PLACES",
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     color = Color.Black
                 )
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(16.dp)
                         .height(540.dp),
                     colors = CardDefaults.cardColors(containerColor = Color.Transparent)
                 ) {

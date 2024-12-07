@@ -47,28 +47,26 @@ fun HomePageScreen(navController: NavController) {
                 Image(
                     painter = painterResource(id = R.drawable.c),
                     contentDescription = "Mosquito Image",
-                    modifier = Modifier.size(350.dp)
+                    modifier = Modifier.size(200.dp)
                 )
 
                 // Welcome Text
                 Text(
-                    text = "WELCOME!",
-                    fontSize = 50.sp,
-                    fontWeight = FontWeight.Bold,
+                    text = "WELCOME TO",
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
                     color = Color.Black
                 )
 
-                // Title
                 Text(
                     text = "DENGUE GUARD",
-                    fontStyle = Italic,
-                    fontSize = 35.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
                     color = Color.Black
                 )
-                Spacer(modifier = Modifier.height(30.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 // Info Box
                 Card(
@@ -91,8 +89,9 @@ fun HomePageScreen(navController: NavController) {
                         )
                         Spacer(modifier = Modifier.height(15.dp))
                         Text(
-                            text = "Clarin Dengue Data Synchronization for Integrated Disease Surveillance System is to enhance the efficiency and accuracy of tracking and managing dengue cases within the Clarin municipality.",
-                            textAlign = TextAlign.Center
+                            text = "Clarin Dengue Data Synchronization System enhance the efficiency and accuracy of tracking and managing dengue cases within the Clarin municipality.",
+                            textAlign = TextAlign.Justify,
+                            fontSize = 15.sp,
                         )
                     }
                 }
