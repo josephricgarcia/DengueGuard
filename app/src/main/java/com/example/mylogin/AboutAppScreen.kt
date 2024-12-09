@@ -25,6 +25,7 @@ fun AboutAppScreen(navController: NavController) {
     Scaffold(
         bottomBar = { BottomNavigationBar(navController = navController) }
     ) { innerPadding ->
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
